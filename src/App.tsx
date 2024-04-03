@@ -9,6 +9,7 @@ function App() {
   const [options,setOptions] = useState<string[]>([])
  const [match,setMatch] = useState<boolean> (false)
  const [score,setScore]= useState(0)
+ const [displayMessage, setDisplayMessage] = useState(false)
 
  const generateNewSet=()=>{
   const actualColor = generateHexColor()
@@ -19,7 +20,7 @@ function App() {
     generateNewSet()
   },[])
   const handleAnswer=(answer:string)=>{
-
+    setDisplayMessage(true)
     if(answer===color){
       //todo: correct answer logic
       console.log("are equal")
@@ -42,9 +43,9 @@ function App() {
         {options.map(option=>(<button key={option} onClick={()=>handleAnswer(option)}>{option}</button>))}  
       </div>
       
-        {match===true &&<div className='message' style={{color:"green"}}>Correct!</div> }
+        {displayMessage && match===true &&<div className='message' style={{color:"green"}}>Correct!</div> }
         
-        {match===false &&<div className='message' style={{color:"red"}}>Incorrect!</div> }
+        {displayMessage && match===false &&<div className='message' style={{color:"red"}}>Incorrect!</div> }
       
       </div>  
     </div>
