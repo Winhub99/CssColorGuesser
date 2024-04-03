@@ -39,3 +39,21 @@ button:focus-visible {
 .message{
   text-align: center;
 }
+
+.score{
+  background-color: #646cff;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-inline: auto;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  ;
+}

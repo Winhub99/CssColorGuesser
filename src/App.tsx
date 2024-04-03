@@ -8,6 +8,7 @@ function App() {
   const [color,setColor] = useState("")
   const [options,setOptions] = useState<string[]>([])
  const [match,setMatch] = useState<boolean> (false)
+ const [score,setScore]= useState(0)
 
  const generateNewSet=()=>{
   const actualColor = generateHexColor()
@@ -23,6 +24,8 @@ function App() {
       //todo: correct answer logic
       console.log("are equal")
       setMatch(true)
+      console.log(score)
+      setScore(prev => prev + 1)
       generateNewSet()
     }else{
       setMatch(false)      
@@ -32,6 +35,8 @@ function App() {
   return (
     <div className='container'>
       <div>
+        <h1 style={{textAlign:'center',marginBottom:"0"}}>Score</h1>
+        <div className='score'>{score}</div>
       <div className="guess-me" style={{background:color}}></div>
       <div className='buttons'>
         {options.map(option=>(<button key={option} onClick={()=>handleAnswer(option)}>{option}</button>))}  
